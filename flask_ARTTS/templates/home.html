@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<form  method="post" action="subways">
+  <div class="source-destination-line">
+    <div class ="inner-source">
+      <h5 class="bottom">
+                     Hi {{session.username}}!!</br></br> Welcome ATTS...
+                </h5>
+
+      <label for="source">Source:</label>
+      <input name="source" id="source" type="text"  placeholder="select source location" class="textbox"/>
+      <label for="destination">Destination:</label>
+      <input name="destination" id="destination" type="text" placeholder="select destination location" class="textbox"/>
+      <input type="date" id="traveldate" name="Travel Date"><br><br>
+      <input type="submit" class="loginbtn" value="Find Trains">
+      <!--input type="submit"  value="Search Trains" class="search-btn"-->
+
+  </div>
+    </div>
+  </form>
+<div id="mybutton">
+  {% if session['logged_in'] == True or session['logged_in'] == "admintrue" %}
+    <center>
+    <input action="action" onclick="location.href='/';" type="submit" value="Home"/>
+    <input action="action" onclick="location.href='/subways'; return false;" type="submit" value="submit"/>
+    <input action="action" onclick="window.history.go(-1); return false;" type="submit" value="Back"/>
+    <input action="action" onclick="history.forward(); return false;" type="submit" value="Next"/>
+    <input action="action" onclick="location.href='/logout'; return false;" type="submit" value="Exit"/>
+    </center>
+
+    {% endif %}
+</div>
+
+{% endblock content %}

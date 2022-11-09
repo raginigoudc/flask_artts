@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<table class="styled-table">
+    <thead>
+  <tr>
+
+    <th>User Name</th>
+    <th>Train Name</th>
+    <th>Source</th>
+      <th> Destination</th>
+      <th> Travel Date</th>
+      <th> time</th>
+
+  </tr>
+  </thead>
+    <tbody>
+  <tr>
+
+    {% for row in result %}
+
+      <tr>
+       <td>{{row['username']}}</td>
+       <td>{{row['train_name']}}</td>
+       <td>{{row['source_location']}}</td>
+       <td>{{row['destination_location']}}</td>
+       <td>{{row['travel_date']}}</td>
+        <td>{{row['time']}}</td>
+
+
+<tr>
+      {% endfor %}
+</tr>
+
+  </tbody>
+
+</table>
+
+
+
+
+
+{% endblock content %}

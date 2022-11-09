@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="login">
+<form action="{{ url_for('updatedb') }}" method="post">
+                  <label for="subject">Write a db Query</label></br>
+                    <textarea id="query" name="query" placeholder="Write your query.." rows="10" cols="38" ></textarea></br></br>
+                    <input type="submit" class="loginbtn" value="Submit"></br>
+                    <div class="msg">{{ result }}</div>
+</form>
+
+
+</div>
+{% endblock %}

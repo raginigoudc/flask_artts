@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<form method="post" action="checkout">
+
+<!--    <p>What would you like for lunch?</p>-->
+<!--<input type="radio" name="gender" value="male" form="myForm"> Male-->
+<!--<input type="radio" name="gender" value="female" form="myForm"> Female-->
+<!--<input type="radio" name="gender" value="unknown" form="myForm"> Unknown-->
+<!--<form action="//www.html.am/html-codes/forms/html-form-tag-action.cfm" target="result3" method="get" id="myForm">-->
+<!--<p><input type="submit" value="Submit"></p>-->
+<!--</form>-->
+<!--<div>-->
+<!--    {% for i in result %}-->
+<!--    <h6> {{i['train_id']}}</h6>-->
+<!--    {% endfor %}-->
+<!--</div>-->
+<h6>{{msg}}</h6>
+<table class="styled-table">
+    <thead>
+  <tr>
+      <th></th>
+    <th>Train Number</th>
+    <th>Express</th>
+    <th>Source</th>
+    <th>Destination</th>
+    <th>Price $</th>
+      <th>Travel Date</th>
+      <th>Time</th>
+  </tr>
+  </thead>
+    <tbody>
+  <tr>
+
+    {% for row in result %}
+      <tr>
+
+      <td> <input value="{{ row }}" name="train" id="train" type="radio"></td>
+       <td>{{row['train_id']}}</td>
+       <td>{{row['train_name']}}</td>
+       <td>{{row['source_location']}}</td>
+       <td>{{row['destination_location']}}</td>
+       <td>{{row['Price']}}</td>
+       <td>{{row['travel_date']}}</td>
+        <td>{{row['time']}}</td>
+
+    <tr>
+      {% endfor %}
+</tr>
+
+  </tbody>
+
+</table>
+
+    <div class = "container">
+    <div class="center">
+    <!--input type="submit" value="BOOK NOW" /-->
+
+        <div>
+        {% if session['logged_in'] == True or session['logged_in'] == "admintrue"  %}
+
+            <input type="submit" class="loginbtn" value="Book Ticket">
+
+
+          {% else %}
+            <h6> Please login for booking Tickets</h6>
+
+          {% endif %}
+        </div>
+
+
+
+    </div>
+    </div>
+</form>
+<div id="mybutton">
+  {% if session['logged_in'] == True or session['logged_in'] == "admintrue" %}
+    <center>
+    <input action="action" onclick="location.href='/';" type="submit" value="Home"/>
+    <input action="action" onclick="location.href='/checkout'; return false;" type="submit" value="submit"/>
+    <input action="action" onclick="window.history.go(-1); return false;" type="submit" value="Back"/>
+    <input action="action" onclick="history.forward(); return false;" type="submit" value="Next"/>
+    <input action="action" onclick="location.href='/logout'; return false;" type="submit" value="Exit"/>
+    </center>
+
+    {% endif %}
+{% endblock content %}

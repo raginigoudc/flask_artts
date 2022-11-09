@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h3>Contact us</h3>
+    <div class="login">
+<form action="{{ url_for('home') }}" method="post">
+
+					<label>Name</label>
+                    <input id="username" name="username" type="text" placeholder="Enter Your Username" class="textbox"/></br></br>
+
+					<label>Email</label>
+                    <input id="email" name="email" type="text" placeholder="Enter Your Email ID" class="textbox"/></br></br>
+                    <label for="ticketorquery">Ticket</label></br>
+                    <select id="ticketorquery" name="ticketorquery">
+                    <option value="Having Technical issue">Technical Support Ticket</option>
+                    <option value="Have Basic Query">Basic Query</option>
+
+                    </select></br></br>
+                    <label for="subject">Subject</label></br>
+                    <textarea id="subject" name="subject" placeholder="Write your query.." rows="10" cols="38" ></textarea></br></br>
+                    <input type="submit" class="loginbtn" value="Submit"></br>
+                </form>
+
+
+    {% endblock content %}

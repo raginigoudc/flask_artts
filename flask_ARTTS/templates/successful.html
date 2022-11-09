@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div>
+    <p>Hey {{session.username}}!!! you have successfully booked </p>
+    <p>Check in My accounts <a class="bottom" href="{{url_for('myaccount')}}"> My Orders</a></p>
+
+</div>
+
+    {% endblock content %}
